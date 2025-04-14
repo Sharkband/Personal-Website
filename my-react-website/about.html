@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Drennan | Software Developer</title>
+    <title>About Me | John Doe</title>
     <link rel="stylesheet" href="src/index.css">
     <!-- React and ReactDOM CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -24,8 +24,8 @@
                         <h1>JD</h1>
                     </div>
                     <ul className="nav-links">
-                        <li><a href="index.html" className="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" className="active">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
                         <li><a href="skills.html">Skills</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -39,17 +39,37 @@
             );
         };
 
-        // Hero section component
-        const Hero = () => {
+        // About section component
+        const About = () => {
             return (
-                <section className="hero">
-                    <div className="hero-content">
-                        <h1>Lucas Drennan</h1>
-                        <h2>Software Developer</h2>
-                        <p>Building elegant solutions to complex problems</p>
-                        <div className="cta-buttons">
-                            <a href="projects.html" className="btn primary-btn">View My Work</a>
-                            <a href="contact.html" className="btn secondary-btn">Contact Me</a>
+                <section className="about page-section">
+                    <h2 className="section-title">About Me</h2>
+                    <div className="about-content">
+                        <div className="about-image">
+                            <div className="profile-placeholder"></div>
+                        </div>
+                        <div className="about-text">
+                            <p>Hello! I'm John, a passionate software developer with expertise in building modern web applications. With 5+ years of experience in full-stack development, I specialize in React, Node.js, and cloud infrastructure.</p>
+                            <p>My approach to development focuses on writing clean, maintainable code and creating intuitive user experiences. I enjoy solving complex problems and continuously learning new technologies.</p>
+                            <div className="about-details">
+                                <div className="detail">
+                                    <strong>Name:</strong> John Doe
+                                </div>
+                                <div className="detail">
+                                    <strong>Email:</strong> john@example.com
+                                </div>
+                                <div className="detail">
+                                    <strong>Location:</strong> San Francisco, CA
+                                </div>
+                                <div className="detail">
+                                    <strong>Availability:</strong> Open to opportunities
+                                </div>
+                            </div>
+                            <div className="social-links">
+                                <a href="#" className="social-icon">GitHub</a>
+                                <a href="#" className="social-icon">LinkedIn</a>
+                                <a href="#" className="social-icon">Twitter</a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -74,23 +94,23 @@
             );
         };
 
-        // Main App component for HomePage
-        const HomePage = () => {
+        // Main App component for AboutPage
+        const AboutPage = () => {
             return (
                 <>
                     <Navigation />
-                    <main>
-                        <Hero />
+                    <main className="main-content">
+                        <About />
                     </main>
                     <Footer />
                 </>
             );
         };
 
-        // Render the HomePage component into the DOM
+        // Render the AboutPage component into the DOM
         const rootElement = document.getElementById('root');
         const root = ReactDOM.createRoot(rootElement);
-        root.render(<HomePage />);
+        root.render(<AboutPage />);
     </script>
 </body>
 </html>

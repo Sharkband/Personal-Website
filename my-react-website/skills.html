@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise | John Doe</title>
+    <link rel="stylesheet" href="src/index.css">
+    <!-- React and ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Root element for React to render into -->
+    <div id="root"></div>
+
+    <!-- React components will be defined here -->
+    <script type="text/babel">
+        // Navigation component
+        const Navigation = () => {
+            return (
+                <nav className="navbar">
+                    <div className="logo">
+                        <h1>JD</h1>
+                    </div>
+                    <ul className="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html" className="active">Skills</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div className="hamburger">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
+                </nav>
+            );
+        };
+
+        // Skills section component
+        const Skills = () => {
+            const skillCategories = [
+                {
+                    category: "Frontend",
+                    skills: [
+                        { name: "React", level: 90 },
+                        { name: "JavaScript", level: 95 },
+                        { name: "TypeScript", level: 85 },
+                        { name: "HTML5", level: 95 },
+                        { name: "CSS3", level: 90 },
+                        { name: "Redux", level: 80 }
+                    ]
+                },
+                {
+                    category: "Backend",
+                    skills: [
+                        { name: "Node.js", level: 85 },
+                        { name: "Express", level: 85 },
+                        { name: "Python", level: 70 },
+                        { name: "Django", level: 65 },
+                        { name: "RESTful APIs", level: 90 },
+                        { name: "GraphQL", level: 75 }
+                    ]
+                },
+                {
+                    category: "Database",
+                    skills: [
+                        { name: "MongoDB", level: 80 },
+                        { name: "PostgreSQL", level: 75 },
+                        { name: "MySQL", level: 70 },
+                        { name: "Firebase", level: 85 }
+                    ]
+                },
+                {
+                    category: "Tools & Others",
+                    skills: [
+                        { name: "Git", level: 90 },
+                        { name: "Docker", level: 75 },
+                        { name: "AWS", level: 70 },
+                        { name: "Jest", level: 80 },
+                        { name: "CI/CD", level: 75 },
+                        { name: "Agile", level: 85 }
+                    ]
+                }
+            ];
+
+            return (
+                <section className="skills page-section">
+                    <h2 className="section-title">Skills & Expertise</h2>
+                    <div className="skills-container">
+                        {skillCategories.map((category, index) => (
+                            <div className="skill-category" key={index}>
+                                <h3>{category.category}</h3>
+                                <div className="skill-list">
+                                    {category.skills.map((skill, skillIndex) => (
+                                        <div className="skill" key={skillIndex}>
+                                            <span className="skill-name">{skill.name}</span>
+                                            <div className="skill-bar">
+                                                <div className="skill-level" style={{width: `${skill.level}%`}}></div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        // Footer component
+        const Footer = () => {
+            return (
+                <footer className="footer">
+                    <div className="footer-content">
+                        <p>© 2025 John Doe. All rights reserved.</p>
+                        <div className="footer-links">
+                            <a href="index.html">Home</a>
+                            <a href="about.html">About</a>
+                            <a href="projects.html">Projects</a>
+                            <a href="skills.html">Skills</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+                </footer>
+            );
+        };
+
+        // Main App component for SkillsPage
+        const SkillsPage = () => {
+            return (
+                <>
+                    <Navigation />
+                    <main className="main-content">
+                        <Skills />
+                    </main>
+                    <Footer />
+                </>
+            );
+        };
+
+        // Render the SkillsPage component into the DOM
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<SkillsPage />);
+    </script>
+</body>
+</html>
