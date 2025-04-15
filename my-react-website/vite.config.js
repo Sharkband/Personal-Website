@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',  // Allow external access
-    port: 80,        // Default Vite port, you can change it if necessary
+    port: 3000,        // Default Vite port, you can change it if necessary
   },
 })
 
