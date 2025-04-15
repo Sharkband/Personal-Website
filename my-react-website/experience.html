@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Expertise | John Doe</title>
+    <title>Skills & Expertise | Lucas Drennan</title>
     <link rel="stylesheet" href="src/index.css">
     <!-- React and ReactDOM CDN -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -21,13 +21,13 @@
             return (
                 <nav className="navbar">
                     <div className="logo">
-                        <h1>JD</h1>
+                        <h1>LD</h1>
                     </div>
                     <ul className="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
-                        <li><a href="skills.html" className="active">Skills</a></li>
+                        <li><a href="experience.html" className="active">Experience</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                     <div className="hamburger">
@@ -39,47 +39,100 @@
             );
         };
 
+         // Experience Item Component
+        const ExperienceItem = ({ company, role, period, description, skills }) => {
+      return (
+        <div className="experience-item">
+          <div className="experience-title">
+            <div className="experience-company">{company}</div>
+            <div className="experience-date">{period}</div>
+          </div>
+          <div className="experience-role">{role}</div>
+          <div className="experience-description">{description}</div>
+          {skills && (
+            <div className="skill-tag-text">
+              {skills.map((skill, index) => (
+                <span key={index} className="skill-tag">{skill}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    };
+    
+    // Experience Section Component
+    const ExperienceSection = () => {
+      const experiences = [
+        {
+          company: "Canada Revenue Agency",
+          role: "Software Developer",
+          period: "Sep 2024 - Present",
+          description: "Developed Java Swing and Angular web scripts to test UI frameworks(Unit Tests), significantly increasing efficiency and streamlining the testing process.",
+          skills: ["Angular", "Java", "Selenium", "Unit test"]
+        },
+        {
+          company: "Carleton University",
+          role: "Teaching assistant",
+          period: "Sep 2023 - May 2024",
+          description: "Trusted in marking and running labs by helping and providing feedback as well as creating a great learning environment.",
+          skills: ["Teaching", "COMP 2804", "STATS 2507"]
+        },
+      ];
+      
+      return (
+        <section className="experience-section">
+          <h2 className="section-title">Professional Experience</h2>
+          {experiences.map((exp, index) => (
+            <ExperienceItem 
+              key={index}
+              company={exp.company}
+              role={exp.role}
+              period={exp.period}
+              description={exp.description}
+              skills={exp.skills}
+            />
+          ))}
+        </section>
+      );
+    };
         // Skills section component
         const Skills = () => {
             const skillCategories = [
                 {
                     category: "Frontend",
                     skills: [
-                        { name: "React", level: 90 },
-                        { name: "JavaScript", level: 95 },
-                        { name: "TypeScript", level: 85 },
-                        { name: "HTML5", level: 95 },
-                        { name: "CSS3", level: 90 },
-                        { name: "Redux", level: 80 }
+                        { name: "React", level: 70 },
+                        { name: "JavaScript", level: 90 },
+                        { name: "HTML", level: 90 },
+                        { name: "CSS", level: 90 },
+                        { name: "Angular", level: 85 }
                     ]
                 },
                 {
                     category: "Backend",
                     skills: [
-                        { name: "Node.js", level: 85 },
-                        { name: "Express", level: 85 },
-                        { name: "Python", level: 70 },
-                        { name: "Django", level: 65 },
-                        { name: "RESTful APIs", level: 90 },
-                        { name: "GraphQL", level: 75 }
+                        { name: "Node.js", level: 80 },
+                        { name: "Express", level: 80 },
+                        { name: "Python", level: 95 },
+                        { name: "Java", level: 100 },
+                        { name: "RESTful APIs", level: 70 },
+                        { name: "C", level: 75 }
                     ]
                 },
                 {
                     category: "Database",
                     skills: [
-                        { name: "MongoDB", level: 80 },
                         { name: "PostgreSQL", level: 75 },
-                        { name: "MySQL", level: 70 },
-                        { name: "Firebase", level: 85 }
+                        { name: "MySQL", level: 90 },
+                        { name: "GraphQl", level: 65 }
                     ]
                 },
                 {
                     category: "Tools & Others",
                     skills: [
                         { name: "Git", level: 90 },
-                        { name: "Docker", level: 75 },
-                        { name: "AWS", level: 70 },
-                        { name: "Jest", level: 80 },
+                        { name: "Selenium", level: 85 },
+                        { name: "AWS", level: 80 },
                         { name: "CI/CD", level: 75 },
                         { name: "Agile", level: 85 }
                     ]
@@ -88,7 +141,7 @@
 
             return (
                 <section className="skills page-section">
-                    <h2 className="section-title">Skills & Expertise</h2>
+                    <h2 className="section-title">Skills</h2>
                     <div className="skills-container">
                         {skillCategories.map((category, index) => (
                             <div className="skill-category" key={index}>
@@ -115,12 +168,12 @@
             return (
                 <footer className="footer">
                     <div className="footer-content">
-                        <p>© 2025 John Doe. All rights reserved.</p>
+                        <p>© 2025 Lucas Drennan. All rights reserved.</p>
                         <div className="footer-links">
                             <a href="index.html">Home</a>
                             <a href="about.html">About</a>
                             <a href="projects.html">Projects</a>
-                            <a href="skills.html">Skills</a>
+                            <a href="experience.html">Experience</a>
                             <a href="contact.html">Contact</a>
                         </div>
                     </div>
@@ -134,6 +187,7 @@
                 <>
                     <Navigation />
                     <main className="main-content">
+                        <ExperienceSection />
                         <Skills />
                     </main>
                     <Footer />

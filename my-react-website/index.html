@@ -21,13 +21,13 @@
             return (
                 <nav className="navbar">
                     <div className="logo">
-                        <h1>JD</h1>
+                        <h1>LD</h1>
                     </div>
                     <ul className="nav-links">
                         <li><a href="index.html" className="active">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
-                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="experience.html">Experience</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                     <div className="hamburger">
@@ -61,12 +61,12 @@
             return (
                 <footer className="footer">
                     <div className="footer-content">
-                        <p>© 2025 John Doe. All rights reserved.</p>
+                        <p>© 2025 Lucas Drennan. All rights reserved.</p>
                         <div className="footer-links">
                             <a href="index.html">Home</a>
                             <a href="about.html">About</a>
                             <a href="projects.html">Projects</a>
-                            <a href="skills.html">Skills</a>
+                            <a href="experience.html">Experience</a>
                             <a href="contact.html">Contact</a>
                         </div>
                     </div>
@@ -74,12 +74,41 @@
             );
         };
 
+        
+        // Starfield Component
+        const Starfield = () => {
+        const stars = Array.from({ length: 100 }, () => ({
+            top: Math.random(),
+            left: Math.random(),
+            delay: `${Math.random() * 5}s`,
+        }));
+
+        return (
+            <div className="starfield">
+            {stars.map((star, i) => (
+                <div
+                key={i}
+                className="star"
+                style={{
+                    '--top': star.top,
+                    '--left': star.left,
+                    '--delay': star.delay,
+                }}
+                />
+            ))}
+            </div>
+        );
+        };
+
+
         // Main App component for HomePage
         const HomePage = () => {
             return (
                 <>
+                
                     <Navigation />
                     <main>
+                        <Starfield />
                         <Hero />
                     </main>
                     <Footer />
