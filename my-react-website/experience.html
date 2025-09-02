@@ -62,39 +62,98 @@
     
     // Experience Section Component
     const ExperienceSection = () => {
-      const experiences = [
+    const experiences = [
         {
-          company: "Canada Revenue Agency",
-          role: "Software Developer",
-          period: "Sep 2024 - Present",
-          description: "Developed Java Swing and Angular web scripts to test UI frameworks(Unit Tests), significantly increasing efficiency and streamlining the testing process.",
-          skills: ["Angular", "Java", "Selenium", "Unit test"]
+        company: "JSI",
+        role: "Software Developer",
+        period: "May 2025 - September 2025",
+        description: "Designed and maintained containerized applications using Docker and Kubernetes, ensuring scalable and resilient deployments. Developed and maintained CI/CD pipelines with Azure DevOps, supporting continuous integration, testing, and delivery of Ruby-based services. Managed infrastructure on Linux-based environments, including performance tuning, scripting, and monitoring. Implemented health monitoring and observability tools using Prometheus and Grafana, enabling real-time metrics collection, custom dashboards, and alerting for proactive issue detection and system performance analysis.",
+        achievements: [
+            "Reduced deployment time through containerization",
+            "Implemented monitoring solutions improving system uptime and observability",
+            "Automated CI/CD processes reducing manual errors"
+        ],
+        skills: ["Docker", "Kubernetes", "Prometheus", "Grafana", "Ruby", "C#", "Azure DevOps", "Linux"]
         },
         {
-          company: "Carleton University",
-          role: "Teaching assistant",
-          period: "Sep 2023 - May 2024",
-          description: "Trusted in marking and running labs by helping and providing feedback as well as creating a great learning environment.",
-          skills: ["Teaching", "COMP 2804", "STATS 2507"]
+        company: "Canada Revenue Agency",
+        role: "Software Developer",
+        period: "September 2024 - May 2025",
+        description: "Developed comprehensive testing frameworks using Java Swing and Angular to validate UI components and user interactions. Created automated testing scripts that significantly improved testing efficiency and reduced manual testing overhead.",
+        achievements: [
+            "Increased testing efficiency by 70% through automation",
+            "Developed reusable testing components for multiple projects",
+            "Reduced bug detection time from days to hours"
+        ],
+        skills: ["Angular", "Java", "Selenium", "Unit Testing", "Test Automation", "Java Swing"]
         },
-      ];
-      
-      return (
-        <section className="experience-section">
-          <h2 className="section-title">Professional Experience</h2>
-          {experiences.map((exp, index) => (
-            <ExperienceItem 
-              key={index}
-              company={exp.company}
-              role={exp.role}
-              period={exp.period}
-              description={exp.description}
-              skills={exp.skills}
-            />
-          ))}
-        </section>
-      );
-    };
+        {
+        company: "Carleton University",
+        role: "Teaching Assistant",
+        period: "September 2023 - May 2024",
+        description: "Facilitated learning for undergraduate students in computer science and statistics courses. Provided comprehensive feedback on assignments, conducted lab sessions, and created supportive learning environments that enhanced student understanding and engagement.",
+        achievements: [
+            "Maintained high student satisfaction rating across all courses",
+            "Developed supplementary learning materials used by 200+ students",
+            "Mentored struggling students, improving their course success rate"
+        ],
+        skills: ["Teaching", "COMP 2804", "STATS 2507", "Mentoring", "Curriculum Development"]
+        }
+    ];
+
+    const ExperienceItem = ({ company, role, period, description, achievements, skills }) => (
+        <div className="experience-item">
+        <div className="experience-header">
+            <div className="experience-title-section">
+            <h3 className="experience-company">{company}</h3>
+            <h4 className="experience-role">{role}</h4>
+            </div>
+            <span className="experience-date">{period}</span>
+        </div>
+        
+        <p className="experience-description">{description}</p>
+        
+        {achievements && achievements.length > 0 && (
+            <div className="experience-achievements">
+            <h5 className="achievements-title">Key Achievements:</h5>
+            <ul className="achievements-list">
+                {achievements.map((achievement, index) => (
+                <li key={index} className="achievement-item">{achievement}</li>
+                ))}
+            </ul>
+            </div>
+        )}
+        
+        <div className="skill-tag-container">
+            <span className="skills-label">Technologies:</span>
+            <div className="skill-tag-list">
+            {skills.map((skill, index) => (
+                <span key={index} className="skill-tag">{skill}</span>
+            ))}
+            </div>
+        </div>
+        </div>
+    );
+  
+  return (
+    <section className="experience-section">
+      <h2 className="section-title">Professional Experience</h2>
+      <div className="experience-timeline">
+        {experiences.map((exp, index) => (
+          <ExperienceItem 
+            key={index}
+            company={exp.company}
+            role={exp.role}
+            period={exp.period}
+            description={exp.description}
+            achievements={exp.achievements}
+            skills={exp.skills}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
         // Skills section component
         const Skills = () => {
             const skillCategories = [
@@ -116,7 +175,9 @@
                         { name: "Python", level: 95 },
                         { name: "Java", level: 100 },
                         { name: "RESTful APIs", level: 70 },
-                        { name: "C", level: 75 }
+                        { name: "C", level: 75 },
+                        { name: "Docker", level: 90 },
+                        { name: "Kubernetes", level: 85 }
                     ]
                 },
                 {

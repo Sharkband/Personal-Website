@@ -44,40 +44,32 @@
             const projects = [
                 {
                     id: 1,
-                    title: "E-commerce Platform",
-                    description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.",
-                    tags: ["React", "Node.js", "MongoDB", "Express", "Stripe API"]
+                    title: "Mobile AI Quiz App",
+                    description: "A cross-platform mobile quiz application built with XAML and C# that leverages AI via GroqCloud to generate dynamic, subject-specific questions and deliver personalized feedback. Designed for both iOS and Android, the app allows users to take quizzes, view detailed analytics on their performance.",
+                    tags: ["XAML", "GroqCloud", "AI", "IOS","Android","C#"],
+                    image: "/src/assets/MobileApp2.jpg",
+                    sourceCode: "https://github.com/Sharkband/Mobile-Student-app",
+                    youtube: "https://youtu.be/p3W0mpxgrBM"
                 },
                 {
                     id: 2,
-                    title: "Task Management App",
-                    description: "A Kanban-style task manager with drag and drop functionality. Allows users to create boards, add tasks, set deadlines, and track progress.",
-                    tags: ["React", "Redux", "Firebase", "React DnD"]
+                    title: "AI Stock Predictor",
+                    description: "An AI-powered stock market prediction tool that uses deep learning models built with PyTorch to forecast future stock prices. The system integrates a React frontend with a FastAPI backend. Features include model training pipeline, real-time predictions, and containerized deployment with Docker.",
+                    tags: ["React", "PyTorch", "Numpy", "FastAPI", "Python", "Docker", "AI"],
+                    image: "/src/assets/AiStock.jpg",
+                    sourceCode: "https://github.com/Sharkband/AI-Stock-Analyzer",
+                    youtube: "https://youtu.be/jYVqolnyd4M"
                 },
                 {
                     id: 3,
-                    title: "Weather Dashboard",
-                    description: "Real-time weather forecasting application using OpenWeather API. Features include current conditions, 5-day forecast, location search, and interactive maps.",
-                    tags: ["React", "API Integration", "Chart.js", "Leaflet Maps"]
-                },
-                {
-                    id: 4,
-                    title: "Social Media Analytics Tool",
-                    description: "A dashboard for tracking and analyzing social media metrics across multiple platforms. Provides insights on engagement, reach, and audience demographics.",
-                    tags: ["React", "D3.js", "Node.js", "Social APIs"]
-                },
-                {
-                    id: 5,
-                    title: "Recipe Finder",
-                    description: "A web application that helps users find recipes based on ingredients they have. Includes filtering by dietary restrictions and cooking time.",
-                    tags: ["React", "Food API", "Progressive Web App"]
-                },
-                {
-                    id: 6,
-                    title: "Code Snippet Manager",
-                    description: "A tool for developers to store, organize, and share code snippets. Features syntax highlighting, tagging, and search functionality.",
-                    tags: ["TypeScript", "React", "Express", "PostgreSQL"]
+                    title: "Github CLI Analzyer",
+                    description: "A command-line tool with optional web server integration that analyzes GitHub repositories, users, and commits using the GitHub API. Built with Ruby and Docker for portability, and includes a lightweight web interface using HTML, CSS, and JavaScript for real-time data visualization.",
+                    tags: ["Ruby", "Docker", "Github API", "HTML", "CSS", "JavaScript"],
+                    image: "/src/assets/GithubCLI.jpg",
+                    sourceCode: "https://github.com/Sharkband/Github-CLI-Analyzer",
+                    youtube: "https://youtu.be/oIvktEQL97E"
                 }
+  
             ];
 
             return (
@@ -86,7 +78,9 @@
                     <div className="projects-grid">
                         {projects.map(project => (
                             <div className="project-card" key={project.id}>
-                                <div className="project-image"></div>
+                                <div className="project-image">
+                                    <img src={project.image} alt={`${project.title} screenshot`} />
+                                </div>
                                 <h3>{project.title}</h3>
                                 <p>{project.description}</p>
                                 <div className="project-tags">
@@ -95,8 +89,8 @@
                                     ))}
                                 </div>
                                 <div className="project-links">
-                                    <a href="#" className="project-link">View Project</a>
-                                    <a href="#" className="project-link">Source Code</a>
+                                    <a href={project.youtube} target="_blank" className="project-link">View Project</a>
+                                    <a href={project.sourceCode} target="_blank" className="project-link">Source Code</a>
                                 </div>
                             </div>
                         ))}
